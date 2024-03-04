@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  testwebapi:
+    container_name: testwebapi
+    image: testfoler/test-image:v1
+    environment:
+      - ConnectionStrings__ServiceConnection=Server=host.docker.internal;Database=testdb;User Id=UserName;Password=Wh@tEverYouW@nt;Trusted_Connection=false;MultipleActiveResultSets=true
+    ports:
+      - 60000:80
+    entrypoint:
+      - dotnet
+      - test.WebAPI.dll
+    working_dir: /App/testWebAPI
